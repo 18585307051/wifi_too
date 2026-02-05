@@ -67,11 +67,17 @@
 }
 
 /* Tool Cards Upgrade */
+.tools-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .tool-card {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0.4) 100%);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-left: 3px solid transparent;
-    padding: 24px;
+    padding: 20px;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -81,43 +87,114 @@
 
 .tool-card:hover {
     transform: translateX(5px);
-    border-left-color: var(--primary);
-    box-shadow: -5px 0 20px rgba(0, 243, 255, 0.1);
+    border-left-color: var(--danger);
+    box-shadow: -5px 0 20px rgba(255, 42, 109, 0.1);
+}
+
+.tool-card.warning {
+    border-color: rgba(255, 230, 0, 0.3);
+}
+
+.tool-card.warning:hover {
+    border-left-color: var(--accent);
+    box-shadow: -5px 0 20px rgba(255, 230, 0, 0.1);
 }
 
 .tool-icon {
-    width: 56px;
-    height: 56px;
+    width: 50px;
+    height: 50px;
     border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 20px;
-    font-size: 28px;
+    margin-right: 16px;
+    font-size: 24px;
     position: relative;
     z-index: 1;
+    background: transparent;
+    border: 1px solid;
 }
 
-/* Neon Gradients for Icons */
-.tool-icon.speed {
-    background: transparent;
-    border: 1px solid #FF9F00;
-    color: #FF9F00;
-    box-shadow: 0 0 15px rgba(255, 159, 0, 0.2);
+/* Arsenal Icon Colors */
+.tool-icon.dict {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
 }
 
-.tool-icon.security {
-    background: transparent;
-    border: 1px solid #00F0FF;
-    color: #00F0FF;
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+.tool-icon.wps {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    box-shadow: 0 0 15px rgba(188, 19, 254, 0.2);
 }
 
-.tool-icon.signal {
-    background: transparent;
-    border: 1px solid #00FF9D;
-    color: #00FF9D;
-    box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+.tool-icon.deauth {
+    border-color: var(--danger);
+    color: var(--danger);
+    box-shadow: 0 0 15px rgba(255, 42, 109, 0.2);
+}
+
+.tool-icon.sniffer {
+    border-color: var(--success);
+    color: var(--success);
+    box-shadow: 0 0 15px rgba(0, 255, 163, 0.2);
+}
+
+.tool-icon.hash {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 15px rgba(255, 230, 0, 0.2);
+}
+
+.tool-icon.mac {
+    border-color: #888;
+    color: #888;
+    box-shadow: 0 0 15px rgba(136, 136, 136, 0.2);
+}
+
+.tool-info {
+    flex: 1;
+}
+
+.tool-info h3 {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+    font-family: var(--font-display);
+    letter-spacing: 1px;
+}
+
+.tool-info p {
+    margin: 0;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.tool-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: monospace;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #555;
+}
+
+.status-dot.active {
+    background: var(--success);
+    box-shadow: 0 0 8px var(--success);
+}
+
+.status-dot.danger {
+    background: var(--danger);
+    box-shadow: 0 0 8px var(--danger);
+    animation: pulse 1s infinite;
 }
 
 /* Settings List */

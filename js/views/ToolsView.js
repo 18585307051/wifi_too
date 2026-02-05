@@ -3,58 +3,100 @@ export const ToolsView = () => {
         <div class="view-container tools-view">
            <header class="main-header">
                 <div class="header-title">
-                    <h2 style="margin:0; text-shadow:0 0 10px var(--secondary);">UTILITIES</h2>
-                    <p style="margin:0; font-size:10px; color:var(--text-muted); letter-spacing:2px;">SYSTEM DIAGNOSTICS</p>
+                    <h2 style="margin:0; text-shadow:0 0 10px var(--danger);">ARSENAL</h2>
+                    <p style="margin:0; font-size:10px; color:var(--text-muted); letter-spacing:2px;">ATTACK TOOLKIT</p>
                 </div>
             </header>
             
             <div class="tools-grid">
-                <!-- Speed Test -->
-                <div class="tool-card glass" id="tool-speed">
-                    <div class="tool-icon speed">
-                        <i class="ph ph-speedometer"></i>
+                <!-- Dictionary Attack -->
+                <div class="tool-card glass" id="tool-dict">
+                    <div class="tool-icon dict">
+                        <i class="ph ph-book-bookmark"></i>
                     </div>
                     <div class="tool-info">
-                        <h3>SPEED TEST</h3>
-                        <p>LATENCY / DOWN / UP</p>
+                        <h3>DICTIONARY</h3>
+                        <p>WORDLIST BRUTE-FORCE</p>
                     </div>
-                    <i class="ph ph-caret-right" style="margin-left:auto; color:var(--text-muted)"></i>
+                    <div class="tool-status">
+                        <span class="status-dot active"></span>
+                        <span>1.2M</span>
+                    </div>
                 </div>
 
-                <!-- Security Scan -->
-                <div class="tool-card glass" id="tool-security">
-                    <div class="tool-icon security">
-                        <i class="ph ph-shield-check"></i>
+                <!-- WPS PIN Attack -->
+                <div class="tool-card glass" id="tool-wps">
+                    <div class="tool-icon wps">
+                        <i class="ph ph-fingerprint"></i>
                     </div>
                     <div class="tool-info">
-                        <h3>SECURITY</h3>
-                        <p>ARP / DNS / SSL</p>
+                        <h3>WPS PIXIE</h3>
+                        <p>PIN CODE EXPLOIT</p>
                     </div>
-                    <i class="ph ph-caret-right" style="margin-left:auto; color:var(--text-muted)"></i>
+                    <div class="tool-status">
+                        <span class="status-dot"></span>
+                        <span>READY</span>
+                    </div>
                 </div>
 
-                <!-- Signal Optimize -->
-                <div class="tool-card glass">
-                    <div class="tool-icon signal">
-                        <i class="ph ph-broadcast"></i>
+                <!-- Deauth Attack -->
+                <div class="tool-card glass warning" id="tool-deauth">
+                    <div class="tool-icon deauth">
+                        <i class="ph ph-prohibit"></i>
                     </div>
                     <div class="tool-info">
-                        <h3>OPTIMIZE</h3>
-                        <p>CHANNEL ANALYSIS</p>
+                        <h3>DEAUTH</h3>
+                        <p>DISCONNECT CLIENTS</p>
                     </div>
-                    <i class="ph ph-caret-right" style="margin-left:auto; color:var(--text-muted)"></i>
+                    <div class="tool-status">
+                        <span class="status-dot danger"></span>
+                        <span>CAUTION</span>
+                    </div>
                 </div>
 
-                 <!-- Device List (New Mock) -->
-                <div class="tool-card glass">
-                    <div class="tool-icon" style="border:1px solid #fff; box-shadow:0 0 10px rgba(255,255,255,0.2);">
-                        <i class="ph ph-devices"></i>
+                <!-- Packet Sniffer -->
+                <div class="tool-card glass" id="tool-sniffer">
+                    <div class="tool-icon sniffer">
+                        <i class="ph ph-waves"></i>
                     </div>
                     <div class="tool-info">
-                        <h3>DEVICES</h3>
-                        <p>LAN SCANNER</p>
+                        <h3>SNIFFER</h3>
+                        <p>HANDSHAKE CAPTURE</p>
                     </div>
-                    <i class="ph ph-caret-right" style="margin-left:auto; color:var(--text-muted)"></i>
+                    <div class="tool-status">
+                        <span class="status-dot"></span>
+                        <span>IDLE</span>
+                    </div>
+                </div>
+
+                <!-- Hash Cracker -->
+                <div class="tool-card glass" id="tool-hash">
+                    <div class="tool-icon hash">
+                        <i class="ph ph-hash"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>HASH CRACK</h3>
+                        <p>PMKID / EAPOL</p>
+                    </div>
+                    <div class="tool-status">
+                        <span class="status-dot"></span>
+                        <span>READY</span>
+                    </div>
+                </div>
+
+                <!-- MAC Spoof -->
+                <div class="tool-card glass" id="tool-mac">
+                    <div class="tool-icon mac">
+                        <i class="ph ph-identification-card"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>MAC SPOOF</h3>
+                        <p>IDENTITY MASK</p>
+                    </div>
+                    <div class="tool-status">
+                        <span class="status-dot"></span>
+                        <span>OFF</span>
+                    </div>
                 </div>
             </div>
         </div>

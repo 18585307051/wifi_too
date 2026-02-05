@@ -9,7 +9,8 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "package": "electron-packager . SkyNetCracker --platform=win32 --arch=x64 --overwrite"
   },
   "build": {
     "appId": "com.skynet.wifi-cracker",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "electron": "^40.1.0",
-    "electron-builder": "^22.14.13"
+    "electron-builder": "^22.14.13",
+    "electron-packager": "^15.2.0"
   }
 }

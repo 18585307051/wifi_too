@@ -1,6 +1,6 @@
+SkyNetCracker-win32-x64/
 node_modules/
 dist/
-win-unpacked/
 .idea/
 .vscode/
 *.log

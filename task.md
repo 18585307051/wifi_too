@@ -23,4 +23,4 @@
     - [x] 后端开发 (main.js - 窗口创建 & IPC通信)
     - [x] 预加载脚本 (preload.js - 安全桥接)
     - [x] 前端对接 (NetworkView 调用真实接口)
-    - [x] 打包测试 (已提供构建指南，需本地 Node v14+ 环境)
+    - [x] 打包测试 (成功生成: SkyNetCracker-win32-x64/SkyNetCracker.exe)

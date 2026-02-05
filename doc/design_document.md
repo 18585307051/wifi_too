@@ -27,63 +27,49 @@
 
 ## 2. 页面详细设计 (Page Breakdown)
 
-### 2.1 首页 (Home / Connection Center)
-**功能**: 核心连接控制台，展示连接状态与关键网络指标。
+### 2.1 首页 (Home / Penetration Center)
+**功能**: 核心渗透控制台，一键启动漏洞扫描与自动破解。
 
 **UI 元素**:
 1.  **Header**:
-    *   Left: Logo "SKYNET WIFI" (带发光特效)。
-    *   Right: "SYSTEM SECURE" 盾牌徽章 (绿色呼吸灯)。
-2.  **Central Core (核心连接器)**:
-    *   **Reactor Button**: 中央巨大的圆形按钮，模拟核反应堆核心。
-    *   **Rotating Rings**: 按钮周围环绕两层反向旋转的能量环（外层紫色，内层蓝色）。
-    *   **Interaction**: 点击按钮 -> 能量环加速 -> 颜色变为绿色 (Connected) -> 核心区域显示 "STOP"。
-3.  **Status Display**:
-    *   显示当前的 SSID (如 "HOME-5G-X") 与 IP 地址 (等宽字体)。
-4.  **Dashboard Grid (仪表盘)**:
-    *   **Ping**: 显示毫秒数 (e.g., "12 ms")，图标黄色。
-    *   **Security**: 显示评分 (e.g., "100"), 图标蓝色。
-    *   **Signal**: 显示百分比 (e.g., "98%"), 图标绿色。
+    *   Left: Logo "SKYNET CRACKER" (黑客风格)。
+    *   Right: "ANONYMOUS" 匿名状态 (面具图标)。
+2.  **Central Core (破解核心)**:
+    *   **Crack Button**: 红色/深红色的“解锁”按钮，带有锁头图标。
+    *   **Terminal Output**: 按钮下方增加一块滚动文本区域，模拟显示 "Intializing handshake...", "Brute-forcing...", "Key found!" 等日志。
+    *   **Rotating Rings**: 红色警戒风格的旋转环。
+3.  **Target Status**:
+    *   显示当前锁定的最佳目标 (Target BSSID)。
 
-### 2.2 发现页 (Networks / Discovery)
-**功能**: 扫描并展示附近的 WiFi 热点，支持查看详情与连接。
+### 2.2 发现页 (Targets / Wireless Audit)
+**功能**: 扫描所有 WiFi 信号，标注加密方式与破解成功率。
 
 **UI 元素**:
-1.  **Header**:
-    *   Title: "NETWORKS" + Subtitle "SCANNING FREQUENCIES..."。
-    *   **Radar Animation**: 右侧显示一个雷达扫描动画，模拟实时搜寻信号。
-2.  **Network List**:
-    *   **List Item**: 每个热点为一个全息卡片。
-    *   **Signal Icon**: 根据信号强度调整透明度和文字阴影。
-    *   **Meta Info**: 显示 SSID, Channel (信道), 加密方式 (WPA3/OPEN)。
-    *   **Action**: "FREE" 热点显示 "CONNECT" 按钮；加密热点显示 "LOCK" 图标。
-    *   **Decorations**: 卡片右下角带有装饰性的 UI 角标 (Corner Accent)。
+1.  **Target List**:
+    *   **Vulnerability Tag**: 每个列表项增加标签 "VULNERABLE" (可破), "SECURE" (难破), "OPEN" (无锁)。
+    *   **Encryption**: 显示 WEP / WPA / WPA2 / WPA3。
+    *   **Action**: 
+        *   "CRACK": 启动暴力破解。
+        *   "GET KEY": 尝试云端获取。
+2.  **Filter**: 顶部增加筛选器 (只显示可破解 / 信号强)。
 
-### 2.3 工具箱 (Tools / Utilities)
-**功能**: 提供网络诊断、优化与安全工具。
+### 2.3 工具箱 (Arsenal / Attack Tools)
+**功能**: 提供多种攻击与辅助工具。
 
 **UI 元素**:
-1.  **Grid Layout**: 垂直排列的功能卡片。
-2.  **Tool Cards**:
-    *   **Speed Test**: 橙红色渐变图标，支持测速（Ping/Down/Up）。
-    *   **Security Scan**: 青蓝色渐变图标，支持 ARP/DNS 扫描。
-    *   **Optimize**: 翠绿色渐变图标，信道拥堵分析。
-    *   **Devices**: 白色线框图标，局域网设备扫描。
-3.  **Interaction**: 点击卡片会有 "缩放 (+scale)" 与 "左侧边框高亮" 的反馈效果。
+1.  **Tool Cards**:
+    *   **Dictionary Attack**: 字典管理与配置，图标为书本/数据库。
+    *   **WPS Pixie Dust**: 针对 WPS 的 PIN 码漏洞攻击。
+    *   **Deauth Attack**: (慎用) WiFi 干扰/踢人下线工具图标。
+    *   **Packet Sniffer**: 抓包分析器 UI。
 
-### 2.4 个人中心 (Profile / System Preferences)
-**功能**: 用户登录、数据同步与全局设置。
+### 2.4 个人中心 (Vault / Database)
+**功能**: 存储已破解的 WiFi 密码本与破解记录。
 
 **UI 元素**:
-1.  **ID Card Header**: 模拟 ID 卡设计的头部区域。
-    *   **Avatar**: 头像框带有动态的水平扫描线动画 (Scan Line)。
-    *   **User Info**: 显示 "GUEST USER" 及 "LEVEL 1 ACCESS"。
-    *   **Login Button**: 幽灵按钮风格 (Ghost Button)。
-2.  **Settings List**:
-    *   **Dark Mode**: 默认开启且锁定 (强制暗黑风格)。
-    *   **Notifications**: 开关控件 (Toggle Switch) 样式定制为矩形滑块。
-    *   **Auto-Backup**: 云端同步开关。
-    *   **Version Info**: 底部显示版本号，采用 Monospace 字体。
+1.  **Password Vault**: 类似保险箱的界面，列出所有已成功破解的 WiFi 账号密码。
+    *   支持 "COPY PASSWORD" 与 "SHARE" (分享到云端数据库)。
+2.  **Stats**: 展示 "已破解数量", "节省流量", "贡献算力"。
 
 ---
 

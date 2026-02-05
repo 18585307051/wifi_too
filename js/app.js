@@ -1,7 +1,7 @@
 import { HomeView, initHomeEvents } from './views/HomeView.js';
 import { NetworkView } from './views/NetworkView.js';
 import { ToolsView } from './views/ToolsView.js';
-import { ProfileView } from './views/ProfileView.js';
+import { ProfileView, initProfileEvents } from './views/ProfileView.js';
 
 const app = {
     init() {
@@ -57,6 +57,8 @@ const app = {
         // Initialize view-specific events
         if (page === 'home') {
             initHomeEvents();
+        } else if (page === 'profile') {
+            initProfileEvents();
         }
     }
 };

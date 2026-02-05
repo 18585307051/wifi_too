@@ -1,4 +1,7 @@
-export const ToolsView = () => {
+// Define namespace if not exists
+window.App = window.App || {};
+
+window.App.ToolsView = () => {
     return `
         <div class="view-container tools-view">
            <header class="main-header">

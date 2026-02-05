@@ -1,4 +1,7 @@
-export const HomeView = () => {
+// Define namespace if not exists
+window.App = window.App || {};
+
+window.App.HomeView = () => {
     return `
         <div class="view-container home-view">
             <!-- Header -->
@@ -70,7 +73,7 @@ export const HomeView = () => {
     `;
 };
 
-export const initHomeEvents = () => {
+window.App.initHomeEvents = () => {
     const btn = document.getElementById('btn-crack');
     const terminal = document.getElementById('terminal-output');
     let isCracking = false;

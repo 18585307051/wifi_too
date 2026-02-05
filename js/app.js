@@ -1,9 +1,7 @@
-import { HomeView, initHomeEvents } from './views/HomeView.js';
-import { NetworkView } from './views/NetworkView.js';
-import { ToolsView } from './views/ToolsView.js';
-import { ProfileView, initProfileEvents } from './views/ProfileView.js';
+// Main App Logic with Global Namespace
+window.App = window.App || {};
 
-const app = {
+window.App.Core = {
     init() {
         console.log('App Initializing...');
         this.cacheDOM();
@@ -35,34 +33,38 @@ const app = {
 
     render(page) {
         let content = '';
+        const { HomeView, NetworkView, ToolsView, ProfileView, initHomeEvents, initProfileEvents } = window.App;
+
         switch (page) {
             case 'home':
-                content = HomeView();
+                content = HomeView ? HomeView() : 'Loading...';
                 break;
             case 'networks':
-                content = NetworkView();
+                content = NetworkView ? NetworkView() : 'Loading...';
                 break;
             case 'tools':
-                content = ToolsView();
+                content = ToolsView ? ToolsView() : 'Loading...';
                 break;
             case 'profile':
-                content = ProfileView();
+                content = ProfileView ? ProfileView() : 'Loading...';
                 break;
             default:
-                content = HomeView();
+                content = HomeView ? HomeView() : 'Loading...';
         }
 
         this.mainContent.innerHTML = content;
 
         // Initialize view-specific events
-        if (page === 'home') {
+        if (page === 'home' && initHomeEvents) {
             initHomeEvents();
-        } else if (page === 'profile') {
+        } else if (page === 'profile' && initProfileEvents) {
             initProfileEvents();
         }
     }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    app.init();
+    window.App.Core.init();
 });
+
+

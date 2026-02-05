@@ -1,4 +1,7 @@
-export const ProfileView = () => {
+// Define namespace if not exists
+window.App = window.App || {};
+
+window.App.ProfileView = () => {
     // Mock cracked passwords
     const crackedWifi = [
         { ssid: 'TP-LINK_5G_SECURED', password: 'WiFiP@ss2024!', date: '2026-02-05', encryption: 'WPA2' },
@@ -98,7 +101,7 @@ export const ProfileView = () => {
     `;
 };
 
-export const initProfileEvents = () => {
+window.App.initProfileEvents = () => {
     // Reveal password toggle
     document.querySelectorAll('.btn-icon.reveal').forEach(btn => {
         btn.addEventListener('click', () => {

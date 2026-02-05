@@ -1,4 +1,7 @@
-export const NetworkView = () => {
+// Define namespace if not exists
+window.App = window.App || {};
+
+window.App.NetworkView = () => {
     // Mock Data - Targets with vulnerability info
     const networks = [
         { ssid: 'TP-LINK_5G_SECURED', bssid: 'A4:CF:12:8B:33:F7', strength: 92, encryption: 'WPA2', vulnerable: true, channel: 6 },

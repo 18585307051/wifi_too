@@ -1,31 +1,44 @@
 export const NetworkView = () => {
-    // Mock Data with more detail
+    // Mock Data - Targets with vulnerability info
     const networks = [
-        { ssid: 'StarLink-X88', strength: 95, secure: true, free: true, channel: 6 },
-        { ssid: 'CyberCafe_Free', strength: 82, secure: false, free: true, channel: 11 },
-        { ssid: 'Unit-734-Secure', strength: 65, secure: true, free: false, channel: 1 },
-        { ssid: 'Unknown-Signal', strength: 40, secure: true, free: false, channel: 9 },
+        { ssid: 'TP-LINK_5G_SECURED', bssid: 'A4:CF:12:8B:33:F7', strength: 92, encryption: 'WPA2', vulnerable: true, channel: 6 },
+        { ssid: 'NETGEAR-HOME', bssid: '00:1A:2B:3C:4D:5E', strength: 78, encryption: 'WPA3', vulnerable: false, channel: 11 },
+        { ssid: 'Starbucks_Guest', bssid: 'F0:9F:C2:11:22:33', strength: 65, encryption: 'OPEN', vulnerable: true, channel: 1 },
+        { ssid: 'Hidden-Corp-Net', bssid: '88:15:44:AB:CD:EF', strength: 45, encryption: 'WPA2-Enterprise', vulnerable: false, channel: 36 },
+        { ssid: 'D-Link_DIR865', bssid: '1C:7E:E5:AA:BB:CC', strength: 30, encryption: 'WEP', vulnerable: true, channel: 9 },
     ];
 
+    const getVulnTag = (net) => {
+        if (net.encryption === 'OPEN') return '<span class="vuln-tag open">OPEN</span>';
+        if (net.vulnerable) return '<span class="vuln-tag vulnerable">VULNERABLE</span>';
+        return '<span class="vuln-tag secure">SECURE</span>';
+    };
+
+    const getActionBtn = (net) => {
+        if (net.encryption === 'OPEN') return '<button class="btn-action connect">CONNECT</button>';
+        if (net.vulnerable) return '<button class="btn-action crack">CRACK</button>';
+        return '<button class="btn-action getkey">GET KEY</button>';
+    };
+
     const listHtml = networks.map(net => `
-        <div class="network-item">
-            <div class="net-icon">
-                <i class="ph-fill ph-wifi-high" style="opacity: ${net.strength / 100}; text-shadow: 0 0 ${net.strength / 5}px var(--primary)"></i>
+        <div class="target-item glass">
+            <div class="target-icon">
+                <i class="ph-fill ph-wifi-high" style="opacity: ${net.strength / 100}; text-shadow: 0 0 ${net.strength / 5}px ${net.vulnerable ? 'var(--danger)' : 'var(--primary)'}"></i>
             </div>
-            <div class="net-info">
-                <div class="net-ssid">${net.ssid}</div>
-                <div class="net-meta" style="font-size:10px; color:var(--text-muted); font-family:monospace;">
-                    CH:${net.channel} | ${net.strength}% | ${net.secure ? 'WPA3' : 'OPEN'}
+            <div class="target-info">
+                <div class="target-ssid">${net.ssid}</div>
+                <div class="target-meta">
+                    <span class="enc-type">${net.encryption}</span>
+                    <span class="divider">|</span>
+                    <span class="bssid">${net.bssid}</span>
+                    <span class="divider">|</span>
+                    <span>CH:${net.channel}</span>
                 </div>
             </div>
-            <div class="net-action">
-                ${net.free
-            ? `<button class="btn-connect-sm">CONNECT</button>`
-            : `<i class="ph ph-lock-key" style="color:var(--text-muted)"></i>`
-        }
+            <div class="target-actions">
+                ${getVulnTag(net)}
+                ${getActionBtn(net)}
             </div>
-            <!-- Decorative corner -->
-            <div style="position:absolute; bottom:0; right:0; width:10px; height:10px; border-bottom:1px solid var(--primary); border-right:1px solid var(--primary); opacity:0.5;"></div>
         </div>
     `).join('');
 
@@ -33,16 +46,22 @@ export const NetworkView = () => {
         <div class="view-container network-view">
             <header class="main-header">
                 <div class="header-title">
-                    <h2 style="margin:0; text-shadow:0 0 10px var(--primary);">NETWORKS</h2>
-                    <p style="margin:0; font-size:10px; color:var(--text-muted); letter-spacing:2px;">SCANNING FREQUENCIES...</p>
+                    <h2 style="margin:0; text-shadow:0 0 10px var(--danger);">TARGETS</h2>
+                    <p style="margin:0; font-size:10px; color:var(--text-muted); letter-spacing:2px;">WIRELESS AUDIT MODE</p>
                 </div>
-                <div class="scan-anim-box" style="position:relative; width:40px; height:40px; display:flex; justify-content:center; align-items:center;">
-                    <i class="ph ph-radar" style="font-size:30px; color:var(--primary); animation:pulse 2s infinite;"></i>
-                    <div style="position:absolute; width:100%; height:100%; border:1px dashed var(--primary); border-radius:50%; animation:spin 4s linear infinite;"></div>
+                <div class="scan-indicator">
+                    <i class="ph ph-radar" style="font-size:28px; color:var(--danger); animation:pulse 1.5s infinite;"></i>
                 </div>
             </header>
             
-            <div class="network-list" style="padding-top:10px;">
+            <!-- Filter Bar -->
+            <div class="filter-bar glass" style="display:flex; gap:10px; padding:10px 15px; border-radius:10px; margin-bottom:15px;">
+                <button class="filter-btn active">ALL</button>
+                <button class="filter-btn">VULNERABLE</button>
+                <button class="filter-btn">STRONG</button>
+            </div>
+            
+            <div class="target-list">
                 ${listHtml}
             </div>
         </div>

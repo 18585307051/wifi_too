@@ -12,15 +12,15 @@ window.App.NetworkView = () => {
     ];
 
     const getVulnTag = (net) => {
-        if (net.encryption === 'OPEN') return '<span class="vuln-tag open">OPEN</span>';
-        if (net.vulnerable) return '<span class="vuln-tag vulnerable">VULNERABLE</span>';
-        return '<span class="vuln-tag secure">SECURE</span>';
+        if (net.encryption === 'OPEN') return '<span class="vuln-tag open">开放</span>';
+        if (net.vulnerable) return '<span class="vuln-tag vulnerable">高危</span>';
+        return '<span class="vuln-tag secure">安全</span>';
     };
 
     const getActionBtn = (net) => {
-        if (net.encryption === 'OPEN') return '<button class="btn-action connect">CONNECT</button>';
-        if (net.vulnerable) return '<button class="btn-action crack">CRACK</button>';
-        return '<button class="btn-action getkey">GET KEY</button>';
+        if (net.encryption === 'OPEN') return '<button class="btn-action connect">连接</button>';
+        if (net.vulnerable) return '<button class="btn-action crack">破解</button>';
+        return '<button class="btn-action getkey">获取密钥</button>';
     };
 
     const listHtml = networks.map(net => `
@@ -35,7 +35,7 @@ window.App.NetworkView = () => {
                     <span class="divider">|</span>
                     <span class="bssid">${net.bssid}</span>
                     <span class="divider">|</span>
-                    <span>CH:${net.channel}</span>
+                    <span>信道:${net.channel}</span>
                 </div>
             </div>
             <div class="target-actions">
@@ -49,8 +49,8 @@ window.App.NetworkView = () => {
         <div class="view-container network-view">
             <header class="main-header">
                 <div class="header-title">
-                    <h2 style="margin:0; text-shadow:0 0 10px var(--danger);">TARGETS</h2>
-                    <p style="margin:0; font-size:10px; color:var(--text-muted); letter-spacing:2px;">WIRELESS AUDIT MODE</p>
+                    <h2 style="margin:0; text-shadow:0 0 10px var(--danger);">目标列表</h2>
+                    <p style="margin:0; font-size:10px; color:var(--text-muted); letter-spacing:2px;">无线审计模式</p>
                 </div>
                 <div class="scan-indicator">
                     <i class="ph ph-radar" style="font-size:28px; color:var(--danger); animation:pulse 1.5s infinite;"></i>
@@ -59,9 +59,9 @@ window.App.NetworkView = () => {
             
             <!-- Filter Bar -->
             <div class="filter-bar glass" style="display:flex; gap:10px; padding:10px 15px; border-radius:10px; margin-bottom:15px;">
-                <button class="filter-btn active">ALL</button>
-                <button class="filter-btn">VULNERABLE</button>
-                <button class="filter-btn">STRONG</button>
+                <button class="filter-btn active">全部</button>
+                <button class="filter-btn">可破解</button>
+                <button class="filter-btn">强加密</button>
             </div>
             
             <div class="target-list">

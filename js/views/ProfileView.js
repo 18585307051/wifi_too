@@ -23,13 +23,13 @@ window.App.ProfileView = () => {
                 <div class="vault-meta">${wifi.encryption} | ${wifi.date}</div>
             </div>
             <div class="vault-actions">
-                <button class="btn-icon reveal" title="Reveal">
+                <button class="btn-icon reveal" title="显示密码">
                     <i class="ph ph-eye"></i>
                 </button>
-                <button class="btn-icon copy" title="Copy">
+                <button class="btn-icon copy" title="复制密码">
                     <i class="ph ph-copy"></i>
                 </button>
-                <button class="btn-icon share" title="Share">
+                <button class="btn-icon share" title="分享">
                     <i class="ph ph-share-network"></i>
                 </button>
             </div>
@@ -42,26 +42,26 @@ window.App.ProfileView = () => {
             <div class="vault-header glass">
                 <div class="vault-logo">
                     <i class="ph-fill ph-vault"></i>
-                    <span>PASSWORD VAULT</span>
+                    <span>密码保险库</span>
                 </div>
                 <div class="vault-stats">
                     <div class="stat">
                         <span class="stat-value">${crackedWifi.length}</span>
-                        <span class="stat-label">CRACKED</span>
+                        <span class="stat-label">已破解</span>
                     </div>
                     <div class="stat">
                         <span class="stat-value">15.2GB</span>
-                        <span class="stat-label">SAVED</span>
+                        <span class="stat-label">已保存</span>
                     </div>
                     <div class="stat">
                         <span class="stat-value">128</span>
-                        <span class="stat-label">CONTRIB</span>
+                        <span class="stat-label">贡献值</span>
                     </div>
                 </div>
             </div>
 
             <div class="section-title" style="margin:20px 0 10px 0; font-size:11px; color:var(--text-muted); letter-spacing:2px;">
-                <i class="ph ph-database"></i> SAVED CREDENTIALS
+                <i class="ph ph-database"></i> 已保存凭证
             </div>
 
             <div class="vault-list">
@@ -69,13 +69,13 @@ window.App.ProfileView = () => {
             </div>
 
             <div class="section-title" style="margin:25px 0 10px 0; font-size:11px; color:var(--text-muted); letter-spacing:2px;">
-                <i class="ph ph-gear"></i> SETTINGS
+                <i class="ph ph-gear"></i> 系统设置
             </div>
 
             <div class="settings-list">
                 <div class="setting-item glass">
                     <i class="ph ph-cloud-arrow-up" style="color:var(--primary)"></i>
-                    <span>AUTO-SYNC TO CLOUD</span>
+                    <span>自动同步云端</span>
                     <label class="switch">
                         <input type="checkbox" checked>
                         <span class="slider round"></span>
@@ -83,7 +83,7 @@ window.App.ProfileView = () => {
                 </div>
                 <div class="setting-item glass">
                     <i class="ph ph-shield-check" style="color:var(--success)"></i>
-                    <span>ANONYMOUS MODE</span>
+                    <span>匿名模式</span>
                     <label class="switch">
                         <input type="checkbox" checked>
                         <span class="slider round"></span>
@@ -92,9 +92,9 @@ window.App.ProfileView = () => {
                 <div class="setting-item glass" style="justify-content:space-between;">
                     <div style="display:flex; align-items:center; gap:15px;">
                         <i class="ph ph-info" style="color:var(--text-muted)"></i>
-                        <span>VERSION</span>
+                        <span>当前版本</span>
                     </div>
-                    <span class="value" style="font-family:monospace; color:var(--danger);">v2.0.0-CRACK</span>
+                    <span class="value" style="font-family:monospace; color:var(--danger);">v2.0.0-CN</span>
                 </div>
             </div>
         </div>

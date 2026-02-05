@@ -8,11 +8,11 @@ window.App.HomeView = () => {
             <header class="main-header">
                 <div class="logo">
                     <i class="ph-fill ph-skull"></i>
-                    <span>SKYNET CRACKER</span>
+                    <span>天网破解器</span>
                 </div>
                 <div class="status-badge anonymous">
                     <i class="ph ph-mask-happy"></i>
-                    <span>ANONYMOUS</span>
+                    <span>匿名模式</span>
                 </div>
             </header>
 
@@ -24,20 +24,20 @@ window.App.HomeView = () => {
                 <button id="btn-crack" class="crack-btn">
                     <div class="inner-content">
                         <i class="ph-fill ph-lock-key-open"></i>
-                        <span class="status-text">CRACK</span>
+                        <span class="status-text">一键破解</span>
                     </div>
                 </button>
             </div>
              
             <div class="target-status" style="text-align:center; margin-bottom:20px;">
-                 <p class="status-label" style="font-family:var(--font-display); letter-spacing:1px; color:var(--danger);">TARGET: NONE</p>
-                 <p class="bssid-label" style="color:var(--text-muted); font-family:monospace; font-size:12px;">BSSID: --:--:--:--:--:--</p>
+                 <p class="status-label" style="font-family:var(--font-display); letter-spacing:1px; color:var(--danger);">目标: 无</p>
+                 <p class="bssid-label" style="color:var(--text-muted); font-family:monospace; font-size:12px;">MAC地址: --:--:--:--:--:--</p>
             </div>
 
             <!-- Terminal Output -->
             <div class="terminal-container glass">
                 <div class="terminal-header">
-                    <span class="terminal-title"><i class="ph ph-terminal-window"></i> TERMINAL</span>
+                    <span class="terminal-title"><i class="ph ph-terminal-window"></i> 终端控制台</span>
                     <div class="terminal-dots">
                         <span class="dot red"></span>
                         <span class="dot yellow"></span>
@@ -45,8 +45,8 @@ window.App.HomeView = () => {
                     </div>
                 </div>
                 <div id="terminal-output" class="terminal-body">
-                    <p class="log-line"><span class="log-time">[00:00:00]</span> System initialized.</p>
-                    <p class="log-line"><span class="log-time">[00:00:01]</span> Waiting for target...</p>
+                    <p class="log-line"><span class="log-time">[00:00:00]</span> 系统初始化完成。</p>
+                    <p class="log-line"><span class="log-time">[00:00:01]</span> 等待选择目标...</p>
                     <p class="log-line blink">_</p>
                 </div>
             </div>
@@ -56,17 +56,17 @@ window.App.HomeView = () => {
                 <div class="dash-item glass">
                     <i class="icon ph ph-hourglass-medium" style="color: var(--accent);"></i>
                     <span class="value">00:00</span>
-                    <span class="label">ELAPSED</span>
+                    <span class="label">耗时</span>
                 </div>
                 <div class="dash-item glass">
                     <i class="icon ph ph-key" style="color: var(--danger);"></i>
                     <span class="value">0</span>
-                    <span class="label">CRACKED</span>
+                    <span class="label">已破解</span>
                 </div>
                 <div class="dash-item glass">
                     <i class="icon ph ph-database" style="color: var(--success);"></i>
-                    <span class="value">1.2M</span>
-                    <span class="label">DICT</span>
+                    <span class="value">120万</span>
+                    <span class="label">字典库</span>
                 </div>
             </div>
         </div>
@@ -80,20 +80,20 @@ window.App.initHomeEvents = () => {
     let logInterval;
 
     const logs = [
-        "Scanning nearby networks...",
-        "Found 5 potential targets.",
-        "Locking onto strongest signal: TP-LINK_5G_SECURED",
-        "BSSID: A4:CF:12:8B:33:F7",
-        "Encryption: WPA2-PSK",
-        "Initiating handshake capture...",
-        "Handshake captured!",
-        "Loading dictionary: rockyou.txt (1.2M entries)",
-        "Brute-forcing password...",
-        "[>>>>>>>>>         ] 45% - Trying: password123",
-        "[>>>>>>>>>>>>>>    ] 70% - Trying: sunshine88",
+        "正在扫描附近网络...",
+        "发现 5 个潜在目标。",
+        "锁定最强信号源: TP-LINK_5G_SECURED",
+        "MAC地址: A4:CF:12:8B:33:F7",
+        "加密方式: WPA2-PSK",
+        "正在启动握手包捕获...",
+        "握手包捕获成功！",
+        "加载字典库: rockyou.txt (120万条目)",
+        "开始暴力破解密码...",
+        "[>>>>>>>>>         ] 45% - 尝试: password123",
+        "[>>>>>>>>>>>>>>    ] 70% - 尝试: sunshine88",
         "[>>>>>>>>>>>>>>>>>>] 100%",
-        "<span style='color:var(--success)'>KEY FOUND: WiFiP@ss2024!</span>",
-        "Connection established. IP: 192.168.1.105"
+        "<span style='color:var(--success)'>密码已找到: WiFiP@ss2024!</span>",
+        "连接建立成功。IP地址: 192.168.1.105"
     ];
     let logIndex = 0;
 
@@ -116,9 +116,9 @@ window.App.initHomeEvents = () => {
 
             if (isCracking) {
                 btn.classList.add('active');
-                statusText.innerText = "STOP";
+                statusText.innerText = "停止";
                 icon.className = "ph-fill ph-lock-open";
-                statusLabel.innerText = "ATTACKING...";
+                statusLabel.innerText = "正在攻击...";
                 statusLabel.style.color = "var(--accent)";
                 logIndex = 0;
 
@@ -128,20 +128,20 @@ window.App.initHomeEvents = () => {
                         logIndex++;
                     } else {
                         clearInterval(logInterval);
-                        statusLabel.innerText = "TARGET: CRACKED!";
+                        statusLabel.innerText = "目标: 已破解!";
                         statusLabel.style.color = "var(--success)";
-                        document.querySelector('.bssid-label').innerText = "BSSID: A4:CF:12:8B:33:F7";
+                        document.querySelector('.bssid-label').innerText = "MAC地址: A4:CF:12:8B:33:F7";
                     }
                 }, 800);
 
             } else {
                 btn.classList.remove('active');
-                statusText.innerText = "CRACK";
+                statusText.innerText = "一键破解";
                 icon.className = "ph-fill ph-lock-key-open";
-                statusLabel.innerText = "TARGET: NONE";
+                statusLabel.innerText = "目标: 无";
                 statusLabel.style.color = "var(--danger)";
                 clearInterval(logInterval);
-                addLog("<span style='color:var(--danger)'>ABORTED BY USER.</span>");
+                addLog("<span style='color:var(--danger)'>用户已终止操作。</span>");
             }
         });
     }

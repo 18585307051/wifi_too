@@ -57,6 +57,8 @@ window.App.Core = {
         // Initialize view-specific events
         if (page === 'home' && initHomeEvents) {
             initHomeEvents();
+        } else if (page === 'networks' && window.App.initNetworkEvents) {
+            window.App.initNetworkEvents();
         } else if (page === 'profile' && initProfileEvents) {
             initProfileEvents();
         }

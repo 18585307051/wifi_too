@@ -1,0 +1,39 @@
+{
+  "name": "wifi_tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.skynet.wifi-cracker",
+    "productName": "SkyNet Cracker",
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/18585307051/wifi_too.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/18585307051/wifi_too/issues"
+  },
+  "homepage": "https://github.com/18585307051/wifi_too#readme",
+  "dependencies": {
+    "node-wifi": "^2.0.16"
+  },
+  "devDependencies": {
+    "electron": "^40.1.0",
+    "electron-builder": "^22.14.13"
+  }
+}

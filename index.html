@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Universal WiFi Key</title>
+    <!-- Google Fonts for Sci-Fi look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Rajdhani:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div id="cyber-bg">
+        <div class="grid-overlay"></div>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <div id="app">
+        <!-- Dynamic Content Will Be Loaded Here -->
+        <main id="main-content">
+            <div class="loading-screen">
+                <div class="loader"></div>
+                <p>INITIALIZING SYSTEM...</p>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-target="home">
+                <div class="nav-glow"></div>
+                <i class="ph ph-wifi-high"></i>
+                <span>连接</span>
+            </button>
+            <button class="nav-item" data-target="networks">
+                <div class="nav-glow"></div>
+                <i class="ph ph-list-dashes"></i>
+                <span>发现</span>
+            </button>
+            <button class="nav-item" data-target="tools">
+                <div class="nav-glow"></div>
+                <i class="ph ph-toolbox"></i>
+                <span>工具</span>
+            </button>
+            <button class="nav-item" data-target="profile">
+                <div class="nav-glow"></div>
+                <i class="ph ph-user"></i>
+                <span>我的</span>
+            </button>
+        </nav>
+    </div>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+:root {
+    /* Cyberpunk Colors */
+    --primary: #00f3ff;
+    --primary-dim: rgba(0, 243, 255, 0.1);
+    --primary-glow: rgba(0, 243, 255, 0.6);
+
+    --secondary: #bc13fe;
+    --secondary-dim: rgba(188, 19, 254, 0.1);
+    --secondary-glow: rgba(188, 19, 254, 0.6);
+
+    --accent: #ffe600;
+    /* Cyber Yellow */
+
+    --bg-dark: #050508;
+    --bg-panel: rgba(10, 15, 30, 0.7);
+    --bg-glass: rgba(20, 30, 50, 0.4);
+
+    --text-main: #ffffff;
+    --text-muted: #8b9bb4;
+
+    --success: #00ffa3;
+    --danger: #ff2a6d;
+
+    /* Fonts */
+    --font-main: 'Exo 2', sans-serif;
+    --font-display: 'Rajdhani', sans-serif;
+
+    /* Spacing & Sizes */
+    --nav-height: 85px;
+    --border-radius: 24px;
+    --safe-area-bottom: env(safe-area-inset-bottom);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Base Glassmorphism */
+.glass {
+    background: var(--bg-glass);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Holographic sheen overlay */
+.glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right,
+            transparent 0%,
+            rgba(255, 255, 255, 0.03) 40%,
+            rgba(255, 255, 255, 0.0) 60%);
+    transform: skewX(-25deg);
+    pointer-events: none;
+}
+
+.glow-text {
+    text-shadow: 0 0 8px var(--primary-glow);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

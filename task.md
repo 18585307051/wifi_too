@@ -17,3 +17,10 @@
 - [x] 自测与部署
     - [x] 用户手动验证 (无需浏览器工具)
     - [x] 最终推送 GitHub
+
+- [x] Electron 桌面版迁移 (真实 WiFi 扫描)
+    - [x] 环境配置 (package.json, electron, node-wifi)
+    - [x] 后端开发 (main.js - 窗口创建 & IPC通信)
+    - [x] 预加载脚本 (preload.js - 安全桥接)
+    - [x] 前端对接 (NetworkView 调用真实接口)
+    - [x] 打包测试 (已提供构建指南，需本地 Node v14+ 环境)

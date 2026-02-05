@@ -373,3 +373,179 @@ html {
     font-size: 12px;
     box-shadow: 0 0 10px var(--primary-dim);
 }
+
+.status-badge.anonymous {
+    border-color: var(--text-muted);
+    color: var(--text-muted);
+}
+
+/* Crack Button Styles */
+.crack-btn {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(40, 10, 20, 1) 0%, rgba(10, 5, 5, 1) 100%);
+    border: 2px solid var(--danger);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    box-shadow:
+        0 0 0 10px rgba(255, 42, 109, 0.05),
+        inset 0 0 50px rgba(255, 42, 109, 0.1);
+    transition: all 0.3s;
+}
+
+.crack-btn:hover {
+    box-shadow:
+        0 0 0 15px rgba(255, 42, 109, 0.1),
+        0 0 50px rgba(255, 42, 109, 0.3);
+    border-color: #ff5588;
+}
+
+.crack-btn .inner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.crack-btn i {
+    font-size: 48px;
+    color: var(--danger);
+    filter: drop-shadow(0 0 10px var(--danger));
+    margin-bottom: 8px;
+    transition: all 0.3s;
+}
+
+.crack-btn span {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.crack-btn.active {
+    animation: pulse-danger 1s infinite;
+}
+
+.crack-btn.active i {
+    color: var(--accent);
+    filter: drop-shadow(0 0 10px var(--accent));
+}
+
+@keyframes pulse-danger {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 10px rgba(255, 42, 109, 0.1), 0 0 30px rgba(255, 42, 109, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 0 20px rgba(255, 42, 109, 0.05), 0 0 60px rgba(255, 42, 109, 0.4);
+    }
+}
+
+/* Danger themed rings */
+.ring.danger {
+    border-color: rgba(255, 42, 109, 0.2);
+    box-shadow: 0 0 20px rgba(255, 42, 109, 0.1);
+}
+
+.ring-1.danger {
+    border-top-color: var(--danger);
+    border-bottom-color: var(--danger);
+}
+
+.ring-2.danger {
+    border-left-color: var(--accent);
+    border-right-color: var(--accent);
+}
+
+/* Terminal Styles */
+.terminal-container {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal-header {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.terminal-title {
+    font-family: var(--font-display);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.terminal-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot.red {
+    background: #ff5f56;
+}
+
+.dot.yellow {
+    background: #ffbd2e;
+}
+
+.dot.green {
+    background: #27c93f;
+}
+
+.terminal-body {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    height: 150px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--success);
+}
+
+.log-line {
+    margin: 0 0 5px 0;
+    line-height: 1.5;
+}
+
+.log-time {
+    color: var(--text-muted);
+    margin-right: 8px;
+}
+
+.log-line.blink {
+    animation: blink-cursor 1s step-end infinite;
+}
+
+@keyframes blink-cursor {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
